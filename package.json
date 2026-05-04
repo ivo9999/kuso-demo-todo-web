@@ -1,0 +1,13 @@
+{
+  "name": "kuso-demo-todo-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Vanilla-JS frontend for the kuso demo todo app",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

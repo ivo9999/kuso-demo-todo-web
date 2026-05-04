@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>kuso · todo demo</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/config.js"></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>todos</h1>
+        <p class="hint">deployed via <a href="https://github.com/sislelabs/kuso">kuso</a></p>
+      </header>
+
+      <form id="new-form">
+        <input id="new-title" type="text" placeholder="add a todo…" autocomplete="off" required />
+        <button type="submit">add</button>
+      </form>
+
+      <ul id="list"></ul>
+
+      <p id="empty" class="empty" hidden>no todos yet — add one above.</p>
+      <p id="error" class="error" hidden></p>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
