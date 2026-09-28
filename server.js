@@ -30,6 +30,15 @@ const server = createServer(async (req, res) => {
       res.end(`{"ok":true}`);
       return;
     }
+    if (url.pathname === "/envcheck") {
+      // Which kuso-managed variables reached this pod (names only).
+      const keys = Object.keys(process.env)
+        .filter((k) => /^(DATABASE_|POSTGRES_|REDIS_|S3_|DEMO_|SHARED_|PROVIDER_|APP_|API_BASE|GREETING)/.test(k))
+        .sort();
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ appEnv: process.env.APP_ENV || "", apiBase: API_BASE, keys }));
+      return;
+    }
     if (url.pathname === "/config.js") {
       // Runtime-injected config so users don't need to rebuild
       // the image to point at a new API.
