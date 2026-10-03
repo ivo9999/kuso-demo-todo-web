@@ -13,6 +13,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const PORT = Number(process.env.PORT || 8080);
 const API_BASE = process.env.API_BASE || "";
+const VERSION = "v2";
 
 const types = {
   ".html": "text/html; charset=utf-8",
@@ -36,7 +37,7 @@ const server = createServer(async (req, res) => {
         .filter((k) => /^(DATABASE_|POSTGRES_|REDIS_|S3_|DEMO_|SHARED_|PROVIDER_|APP_|API_BASE|GREETING)/.test(k))
         .sort();
       res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ appEnv: process.env.APP_ENV || "", apiBase: API_BASE, keys }));
+      res.end(JSON.stringify({ version: VERSION, appEnv: process.env.APP_ENV || "", apiBase: API_BASE, keys }));
       return;
     }
     if (url.pathname === "/config.js") {
