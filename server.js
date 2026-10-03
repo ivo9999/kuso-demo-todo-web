@@ -13,7 +13,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const PORT = Number(process.env.PORT || 8080);
 const API_BASE = process.env.API_BASE || "";
-const VERSION = "v2";
+const VERSION = "v3";
 
 const types = {
   ".html": "text/html; charset=utf-8",
